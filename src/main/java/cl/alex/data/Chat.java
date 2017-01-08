@@ -25,9 +25,9 @@ public class Chat implements Serializable {
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	@OneToMany(mappedBy="chat", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Usuario> usuario1 = new ArrayList<Usuario>();
+	private List<Usuario> emisor = new ArrayList<Usuario>();
 	@OneToMany(mappedBy="chat", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Usuario> usuario2 = new ArrayList<Usuario>();
+	private List<Usuario> receptor = new ArrayList<Usuario>();
 	@OneToMany(mappedBy="chat", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Mensaje> mensaje = new ArrayList<Mensaje>();
 
@@ -39,20 +39,28 @@ public class Chat implements Serializable {
 		this.id = id;
 	}
 	
-	public List<Usuario> getUsuario1() {
-		return this.usuario1;
+	public List<Usuario> getEmisor() {
+		return this.emisor;
 	}
 
-	public void setUsuario1(final List<Usuario> usuario1) {
-		this.usuario1 = usuario1;
+	public void setEmisor(final List<Usuario> emisor) {
+		this.emisor = emisor;
 	}
 	
-	public List<Usuario> getUsuario2() {
-		return this.usuario2;
+	public List<Usuario> getReceptor() {
+		return this.receptor;
 	}
 
-	public void setUsuario2(final List<Usuario> usuario2) {
-		this.usuario2 = usuario2;
+	public void setReceptor(final List<Usuario> receptor) {
+		this.receptor = receptor;
+	}
+
+	public List<Mensaje> getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(List<Mensaje> mensaje) {
+		this.mensaje = mensaje;
 	}
 
 	@Override
