@@ -32,7 +32,7 @@ import cl.alex.rest.DTO.ChatDTO;
 
 public class ChatEndpoint {
 	
-	@PersistenceContext(unitName = "sit-web-persistence-unit")
+	@PersistenceContext(unitName = "chat-persistence-unit")
 	public EntityManager em;
 
 	@POST
@@ -118,7 +118,7 @@ public class ChatEndpoint {
 	@Consumes("application/json")
 	public Response update(
 			@Context HttpServletRequest request,
-			@PathParam("id") long id, MensajeDTO dto) {
+			@PathParam("id") long id, ChatDTO dto) {
 		
 		if (dto == null) {
 			return Response.status(Status.BAD_REQUEST).build();

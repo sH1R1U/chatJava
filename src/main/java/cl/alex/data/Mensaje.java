@@ -1,12 +1,17 @@
 package cl.alex.data;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+
 import java.io.Serializable;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 @Entity
@@ -22,6 +27,10 @@ public class Mensaje implements Serializable {
 
 	@Column(length = 500, name = "mensaje")
 	private String mensaje;
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="ID_CHAT", nullable=false, updatable=true)
+	private Chat chat;
 
 	public Long getId() {
 		return this.id;

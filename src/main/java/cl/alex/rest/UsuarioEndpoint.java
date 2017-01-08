@@ -31,7 +31,7 @@ import cl.alex.rest.DTO.UsuarioDTO;
 @Path("/usuario")
 public class UsuarioEndpoint {
 	
-	@PersistenceContext(unitName = "sit-web-persistence-unit")
+	@PersistenceContext(unitName = "chat-persistence-unit")
 	public EntityManager em;
 
 	@POST

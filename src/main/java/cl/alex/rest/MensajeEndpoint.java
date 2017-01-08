@@ -32,7 +32,7 @@ import javax.ws.rs.core.UriBuilder;
 @Path("/mensaje")
 public class MensajeEndpoint {
 	
-	@PersistenceContext(unitName = "sit-web-persistence-unit")
+	@PersistenceContext(unitName = "chat-persistence-unit")
 	public EntityManager em;
 
 	@POST
