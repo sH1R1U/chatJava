@@ -10,6 +10,7 @@ public class UsuarioDTO {
 	private String nombre;
 	private String password;
 	private String email;
+	private Boolean conectado;
 	
 	public UsuarioDTO() {
 		
@@ -21,6 +22,7 @@ public class UsuarioDTO {
 			this.nombre = entity.getNombre();
 			this.password = entity.getPassword();
 			this.email = entity.getEmail();
+			this.conectado = entity.getConectado();
 		}
 	}
 	
@@ -31,6 +33,7 @@ public class UsuarioDTO {
 		entity.setNombre(this.nombre);
 		entity.setPassword(this.password);
 		entity.setEmail(this.email);
+		entity.setConectado(this.conectado);
 
 		entity = em.merge(entity);
 		return entity;
@@ -59,6 +62,14 @@ public class UsuarioDTO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Boolean getConectado() {
+		return conectado;
+	}
+
+	public void setConectado(Boolean conectado) {
+		this.conectado = conectado;
 	}
 
 }

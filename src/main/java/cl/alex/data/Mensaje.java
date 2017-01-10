@@ -21,7 +21,7 @@ public class Mensaje implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@SequenceGenerator(name = "Mensaje_ID_GENERATOR", sequenceName = "SEQ_MENSAJE", allocationSize = 1, initialValue = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Usuario_ID_GENERATOR")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Mensaje_ID_GENERATOR")
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 

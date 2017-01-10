@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sitwar').factory('flash', ['$rootScope', function ($rootScope) {
+angular.module('chat').factory('flash', ['$rootScope', function ($rootScope) {
     var messages = [];
     var currentMessage = {};
 

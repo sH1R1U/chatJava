@@ -21,7 +21,7 @@ public class Chat implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@SequenceGenerator(name = "Chat_ID_GENERATOR", sequenceName = "SEQ_CHAT", allocationSize = 1, initialValue = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Usuario_ID_GENERATOR")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Chat_ID_GENERATOR")
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	@OneToMany(mappedBy="chat", cascade = CascadeType.ALL, orphanRemoval = true)

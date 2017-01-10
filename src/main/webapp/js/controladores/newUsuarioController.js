@@ -1,10 +1,8 @@
 angular.module('chat').controller('NewUsuarioController', function ($scope, $location, locationParser, flash, UsuarioResource , $rootScope, $interval, $log) {
-    
-  $scope.$location = $location;
-  $scope.requiredPermisos = true;
-  $scope.isNew = true;
+
   
   $scope.save = function() {
+    $scope.usuario.conectado = 1;
       var successCallback = function(data,responseHeaders){
           var id = locationParser(responseHeaders);
           flash.setMessage({'type':'success','text':'El usuario ha sido creado satisfactoriamente.'});
@@ -17,7 +15,7 @@ angular.module('chat').controller('NewUsuarioController', function ($scope, $loc
               flash.setMessage({'type': 'error', 'text': 'Ocurrio algún Problema. Reintentar más tarde.'}, true);
           }
       };
-      UsuarioResource.save(successCallback, errorCallback);
+      UsuarioResource.save($scope.usuario.conectado,successCallback, errorCallback);
   };
   
   $scope.cancel = function() {

@@ -1,0 +1,33 @@
+<div id="contenedor">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="button">Buscar</button>
+                </span>
+                <input id="Buscar" type="text" name="buscar" class="form-control" style="width: 170px" placeholder="Buscar Usuario">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="search-results">
+        <div class="table-responsive">
+        <table class="table table-responsive table-bordered clearfix">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Conectado</th>
+                </tr>
+            </thead>
+            <tbody id="search-results-body">
+                <tr ng-show="total==0">
+                    <td colspan="6">No se encuentran datos</td>
+                    
+                </tr>
+                <tr ng-repeat="result in filteredResults" ng-class="{'selected':result.id == selectedRow}" ng-click="setClickedRow(result.id)">
+                    <td>{{result.nombre}}</a></td>
+                    <td>{{result.conectado ? "SI" : "NO"}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

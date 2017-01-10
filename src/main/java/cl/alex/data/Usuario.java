@@ -35,8 +35,11 @@ public class Usuario implements Serializable {
 	@Column(name = "email", nullable = false)
 	private String email;
 	
+	@Column(length = 1, nullable = false)
+	private Boolean conectado;
+
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name="ID_CHAT", nullable=false, updatable=true)
+	@JoinColumn(name = "ID_CHAT", nullable = false, updatable = true)
 	private Chat chat;
 
 	public Long getId() {
@@ -71,6 +74,22 @@ public class Usuario implements Serializable {
 		this.email = email;
 	}
 
+	public Boolean getConectado() {
+		return conectado;
+	}
+
+	public void setConectado(Boolean conectado) {
+		this.conectado = conectado;
+	}
+
+	public Chat getChat() {
+		return chat;
+	}
+
+	public void setChat(Chat chat) {
+		this.chat = chat;
+	}
+
 	@Override
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
@@ -82,6 +101,10 @@ public class Usuario implements Serializable {
 			result += ", password: " + password;
 		if (email != null && !email.trim().isEmpty())
 			result += ", email: " + email;
+		if (chat != null)
+			result += ", chat: " + chat;
+		if (conectado != null)
+			result += ", conectado: " + conectado;
 		return result;
 	}
 }
